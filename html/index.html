@@ -20,22 +20,18 @@
     </section>
     <footer>
         <button id="btnmodal">specify location</button>
+        <p id="copyright">&copy; Created by Yurii M</p>
     </footer>
     <!-- The Modal -->
 <aside id="ModalSearch" class="modal">
     <!-- Modal content -->
     <main class="modal-content">
       <header class="modal-header">
+        <form class="nosubmit">
+          <input class="nosubmit" type="search" placeholder="Search...">
+        </form>        
         <span class="close">&times;</span>
-
       </header>
-      <section class="modal-body">
-        <p>Some text in the Modal Body</p>
-        <p>Some other text...</p>
-      </section>
-      <footer class="modal-footer">
-        <h3>Modal Footer</h3>
-      </footer>
     </main>
 </aside>
   
@@ -119,14 +115,6 @@
             requestAnimationFrame(rotateClouds);
           })();
         });
-      </script>
-      <script>
-            function initialize() {
-            var input = document.getElementById('searchTextField');
-            new google.maps.places.Autocomplete(input);
-            }
-
-            google.maps.event.addDomListener(window, 'load', initialize);
       </script>
 </body>
 </html>
