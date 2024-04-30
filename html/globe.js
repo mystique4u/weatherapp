@@ -20,18 +20,12 @@ const world = Globe({ animateIn: false })
   .backgroundColor(modeVariable)
   .pointOfView({ lat: 0, lng: 0, altitude: 1.7 })
   .globeImageUrl('./earth-blue-marble.jpg')
-  .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png');
+  .bumpImageUrl('./earth-topology.png');
 
 // Auto-rotate
 world.controls().autoRotate = true;
 world.controls().autoRotateSpeed = 0.35;
 
-//Responsive
-
-// window.addEventListener('resize', (event) => {
-// world.width([event.target.innerWidth])
-// world.height([event.target.innerHeight])
-// });
 
 // Add clouds sphere
 const CLOUDS_IMG_URL = './clouds.png'; // from https://github.com/turban/webgl-earth
