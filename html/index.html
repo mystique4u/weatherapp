@@ -6,6 +6,7 @@
     <meta name="color-scheme" content="dark light">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="cities.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -29,9 +30,14 @@
     <!-- Modal content -->
     <main class="modal-content">
       <header class="modal-header">
-        <form class="nosubmit">
+        <!-- <form class="nosubmit">
           <input class="nosubmit" type="search" placeholder="Search..." autofocus>
-        </form>        
+        </form> -->
+        <form class="nosubmit autocomplete="off" action="#">
+          <div class="autocomplete">
+            <input class="nosubmit" id="myInput" type="text" name="myCountry" placeholder="Search city...">
+          </div>
+        </form>
         <span class="close">&times;</span>
       </header>
     </main>
