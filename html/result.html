@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
+    <link rel="stylesheet" href="css/result.css">
+    <script src="js/result.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <title>World Wide Weather App - Demo App for DevOps Project</title>
+</head>
+<body id="result">
+    <main>
+        <header>
+            <h1 class="city_name"><span class="country_name">UA</span>Kharkiv</h1>
+            <a class="mainicon" href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 16 16">
+                    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z"/>
+                </svg>
+            </a>
+        </header>
+        <p class="weather">
+            <span class="wsicon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="85" height="85" fill="white" class="bi bi-clouds" viewBox="0 0 16 16">
+                    <path d="M16 7.5a2.5 2.5 0 0 1-1.456 2.272 3.5 3.5 0 0 0-.65-.824 1.5 1.5 0 0 0-.789-2.896.5.5 0 0 1-.627-.421 3 3 0 0 0-5.22-1.625 5.6 5.6 0 0 0-1.276.088 4.002 4.002 0 0 1 7.392.91A2.5 2.5 0 0 1 16 7.5"/>
+                    <path d="M7 5a4.5 4.5 0 0 1 4.473 4h.027a2.5 2.5 0 0 1 0 5H3a3 3 0 0 1-.247-5.99A4.5 4.5 0 0 1 7 5m3.5 4.5a3.5 3.5 0 0 0-6.89-.873.5.5 0 0 1-.51.375A2 2 0 1 0 3 13h8.5a1.5 1.5 0 1 0-.376-2.953.5.5 0 0 1-.624-.492z"/>
+                </svg>
+            </span>
+            <span class="temperature">
+                +14
+            </span>
+            <span class="celsius">
+                &#8451
+            </span>
+        </p>
+        <p class="description">"overcast clouds"</p>
+    </main>
+    <section id="forecast">
+        <p class="forecast_row"><span class="wday">Mon</span><span class="wsicon"><img src="/static/images/states_icons/cloud.svg" alt=""></span><span class="wsdescription">overcast clouds</span><span class="temperature">+14</span><span class="celsius">&#8451</span></p>
+        <p class="forecast_row"><span class="wday">Tue</span><span class="wsicon"><img src="/static/images/states_icons/cloud-fog.svg" alt=""></span><span class="wsdescription">overcast clouds</span><span class="temperature">+14</span><span class="celsius">&#8451</span></p>
+        <p class="forecast_row"><span class="wday">Wed</span><span class="wsicon"><img src="/static/images/states_icons/cloud-lightning.svg" alt=""></span><span class="wsdescription">overcast clouds</span><span class="temperature">+14</span><span class="celsius">&#8451</span></p>
+        <p class="forecast_row"><span class="wday">Thu</span><span class="wsicon"><img src="/static/images/states_icons/cloud-sun.svg" alt=""></span><span class="wsdescription">overcast clouds</span><span class="temperature">+14</span><span class="celsius">&#8451</span></p>
+    </section>
+    <footer>
+        <p id="copyright">&copy; Created by Yurii M. <br>Data provided by openweathermap.org</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,195 @@
+:root {
+    color-scheme: light dark;
+  }
+
+* {
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+    margin:0;
+    padding:0;
+}
+
+/* Typography */
+#result h1 {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+.country_name {
+    font-size: 1.5rem;
+    font-weight: 100;
+    margin-right: 0.5rem;
+}
+
+/*Flex */
+html, body {
+    height: 100vh;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+main header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 2;
+}
+.weather {
+    flex-grow: 9;
+    display:flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+p.weather span {
+    margin: 0.3rem;
+}
+.weather .celsius {
+    font-size: 2rem;
+    margin-top: 0.7rem;
+}
+main .temperature {
+    font-size: 4rem;
+    font-weight: 900;
+}
+.description {
+    flex-grow: 1;
+    font-size: 1.5rem;
+    font-style: italic ;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 14;
+    background-image: url(/static/images/states_images/thunderstorm.jpg);
+    justify-content: space-around;
+    align-items: center;
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    background-size: cover;
+    animation: animatedBackground 100s linear infinite alternate;
+    text-shadow: 1px 1px 8px #5b5b5b;
+}
+
+.city_name {
+    display: flex;
+    justify-content: center;
+}
+.mainicon {
+    display: block;
+    position: absolute;
+    right: 10%;
+}
+#forecast {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 6;
+    padding-top: 1rem;
+    justify-content: space-around;
+}
+
+.forecast_row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#forecast .celsius {
+    flex-grow: 2;
+    padding-right: 1.5rem;
+}
+.wday {
+    font-size: 1.2rem;
+    flex-grow: 2;
+    align-self: center;
+    padding-left: 1.5rem;
+    color: #A8CFEC;
+    width: 8%;
+}
+.wsicon {
+    flex-grow: 1;
+}
+#forecast .wsicon img {
+    width: 28px;
+    height: 28px;
+}
+.wsdescription {
+    flex-grow: 4;
+}
+#forecast .temperature {
+    font-weight: 900;
+    font-size: 1.2rem;
+    flex-grow: 1;
+}
+#forecast p span {
+    text-align: center;
+}
+
+footer button {
+    color: #8F8F8F;
+    font-size: 1.3em;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+#copyright {
+  font-size: .8rem;
+  color: #3636368b;
+  text-align: center;
+}
+
+@keyframes animatedBackground {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 100% 0;
+    }
+  }
+
+/* Dark mode*/
+@media screen and (prefers-color-scheme: light) {
+
+
+}
+
+@media screen and (prefers-color-scheme: dark) {
+
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 767px) {
+    /* CSS styles for mobile devices */
+  }
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    /* CSS styles for tablet devices */
+    #forecast {
+        max-width: 80vw;
+        min-width: 60vw;
+        margin: 0 auto;
+    }
+  }
+  @media only screen and (min-width: 1024px) {
+    #forecast {
+        max-width: 60vw;
+        min-width: 40vw;
+        margin: 0 auto;
+    }
+  }
+  
+  

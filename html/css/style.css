@@ -80,6 +80,9 @@ footer {
     .modal-content header {
       border-bottom: 1px solid #e1e1e1;
     }
+    .autocomplete-items div:hover {
+      background-color: #e9e9e9; 
+    }
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -91,6 +94,9 @@ footer {
     }
     .modal-content header {
       border-bottom: 1px solid #6f6f6f;
+    }
+    .autocomplete-items div:hover {
+      background-color: #202020; 
     }
 }
 
@@ -224,16 +230,10 @@ input[type=submit] {
 .autocomplete-items div {
   padding: 10px;
   cursor: pointer;
-  background-color: #fff; 
-}
 
-/*when hovering an item:*/
-.autocomplete-items div:hover {
-  background-color: #e9e9e9; 
 }
 
 /*when navigating through the items using the arrow keys:*/
 .autocomplete-active {
-  background-color: DodgerBlue !important; 
   color: #ffffff; 
 }
