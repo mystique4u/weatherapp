@@ -67,6 +67,7 @@ footer {
   font-size: .8rem;
   flex-grow:1;
   color: #3636368b;
+  text-align: center;
 }
 
 /* Dark mode*/
