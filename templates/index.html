@@ -30,14 +30,25 @@
     <!-- Modal content -->
     <main class="modal-content">
       <header class="modal-header">
-        <form class="nosubmit autocomplete="off" method="POST">
+        <form class="nosubmit" autocomplete="off" action="/result" method="POST">
           <div class="autocomplete">
             <input type="text" id="city" name="city" class="nosubmit" placeholder="Search city..." required>
+            <input type="submit">
           </div>
         </form>
+        <!-- <form method="POST">
+          <label for="city">Enter city name:</label>
+          <input type="text" id="city" name="city" required>
+          <button type="submit">Get Weather</button>
+      </form> -->
         <span class="close">&times;</span>
       </header>
     </main>
 </aside>
 </body>
 </html>
+
+
+
+
+

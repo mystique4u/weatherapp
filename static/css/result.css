@@ -60,6 +60,7 @@ main header {
 main .temperature {
     font-size: 4rem;
     font-weight: 900;
+    margin-left: 1rem;
 }
 .description {
     flex-grow: 1;
@@ -70,7 +71,6 @@ main {
     display: flex;
     flex-direction: column;
     flex-grow: 14;
-    background-image: url(/static/images/states_images/clear-sky.jpg);
     justify-content: space-around;
     align-items: center;
     background-position: 0 0;
@@ -200,4 +200,72 @@ footer {
     }
   }
   
-  
+/* Weather states */
+/* DAY     NIGHT
+01d 	01n 	clear sky
+02d 	02n 	few clouds
+03d 	03n 	scattered clouds
+04d 	04n 	broken clouds
+09d 	09n 	shower rain
+10d 	10n 	rain
+11d 	11n 	thunderstorm
+13d 	13n 	snow
+50d 	50n 	mist  */
+
+/* DAY BG  */
+#state01d {
+    background-image: url(/static/images/states_images/day/01d.jpg);
+}
+#state02d {
+    background-image: url(/static/images/states_images/day/02d.jpg);
+}
+#state03d {
+    background-image: url(/static/images/states_images/day/03d.jpg);
+}
+#state04d {
+    background-image: url(/static/images/states_images/day/04d.jpg);
+}
+#state09d {
+    background-image: url(/static/images/states_images/day/09d.jpg);
+}
+#state10d {
+    background-image: url(/static/images/states_images/day/10d.jpg);
+}
+#state11d {
+    background-image: url(/static/images/states_images/day/11d.jpg);
+}
+#state13d {
+    background-image: url(/static/images/states_images/day/13d.jpg);
+}
+#state50d {
+    background-image: url(/static/images/states_images/day/50d.jpg);
+}
+
+/* NIGHT BG  */
+#state01n {
+    background-image: url(/static/images/states_images/night/01n.jpg);
+}
+#state02n {
+    background-image: url(/static/images/states_images/night/02n.jpg);
+}
+#state03n {
+    background-image: url(/static/images/states_images/night/03n.jpg);
+}
+#state04n {
+    background-image: url(/static/images/states_images/night/04n.jpg);
+}
+#state09n {
+    background-image: url(/static/images/states_images/night/09n.jpg);
+}
+#state10n {
+    background-image: url(/static/images/states_images/night/10n.jpg);
+}
+#state11n {
+    background-image: url(/static/images/states_images/night/11n.jpg);
+}
+#state13n {
+    background-image: url(/static/images/states_images/night/13n.jpg);
+}
+#state50n {
+    background-image: url(/static/images/states_images/night/50n.jpg);
+}

@@ -17,13 +17,14 @@ def get_weather(city):
     data = response.json()
     if response.status_code == 200:
         city_name = data['name']
-        country_name = data['country']
-        temperature = data['main']['temp']
+        country_name = data['sys']['country']
+        temperature = round(data['main']['temp'])
         weather_desc = data['weather'][0]['description']
         lon = data['coord']['lon']
         lat = data['coord']['lat']
+        weather_icon = data['weather'][0]['icon']
 
-        return {'city_name': city_name, 'country_name': country_name, 'temperature': temperature, 'weather_desc': weather_desc, 'lon': lon, 'lat': lat}
+        return {'city_name': city_name, 'country_name': country_name, 'temperature': temperature, 'weather_desc': weather_desc, 'lon': lon, 'lat': lat, 'weather_icon': weather_icon}
     else:
         return None
 
@@ -42,18 +43,15 @@ def get_weather(city):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    return render_template('index.html')
+
+@app.route('/result', methods=['GET', 'POST'])
+def result():
     weather_data = None
     if request.method == 'POST':
         city = request.form['city']
         weather_data = get_weather(city)
-    return render_template('index.html', weather_data=weather_data)
-
-# @app.route('/result', methods=['GET', 'POST'])
-# def result():
-#     forecast_data = None
-#     if request.method == 'POST':
-#         forecast_data = get_forecast(lat, lon)
-#     return render_template('result.html',  forecast_data=forecast_data)
+    return render_template('result.html', weather_data=weather_data)
 
 if __name__ == '__main__':
     app.run(debug=True)
