@@ -3,19 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <meta name="color-scheme" content="dark light">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/script.js" defer></script>
+    <script src="/static/js/cities.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <script src="/static/js/globe.gl.min.js"></script>
+    <script type="module" src="/static/js/globe.js" defer ></script>
+    <title>World Wide Weather App - Demo App for DevOps Project</title>
 </head>
 <body>
-    <h1>Weather App E</h1>
-    <form method="POST">
-        <label for="city">Enter city name:</label>
-        <input type="text" id="city" name="city" required>
-        <button type="submit">Get Weather</button>
-    </form>
-    {% if weather_data %}
-        <h2>Weather in {{ weather_data.city_name }}:</h2>
-        <p>Temperature: {{ weather_data.temperature }}°C</p>
-        <p>Description: {{ weather_data.weather_desc }}</p>
-    {% endif %}
+    <header>
+        <h1>Weather</h1>
+        <p>world wide</p>
+    </header>
+    <section id="globe">
+    </section>
+    <footer>
+        <button id="btnmodal">specify location</button>
+        <p id="copyright">&copy; Created by Yurii M. <br>Data provided by openweathermap.org</p>
+    </footer>
+    <!-- The Modal -->
+<aside id="ModalSearch" class="modal">
+    <!-- Modal content -->
+    <main class="modal-content">
+      <header class="modal-header">
+        <form class="nosubmit autocomplete="off" method="POST">
+          <div class="autocomplete">
+            <input type="text" id="city" name="city" class="nosubmit" placeholder="Search city..." required>
+          </div>
+        </form>
+        <span class="close">&times;</span>
+      </header>
+    </main>
+</aside>
 </body>
 </html>
