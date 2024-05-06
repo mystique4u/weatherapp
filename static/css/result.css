@@ -25,6 +25,10 @@
     font-weight: 100;
     margin-right: 0.5rem;
 }
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
 
 /*Flex */
 html, body {
@@ -154,7 +158,7 @@ main {
             flex-grow: 6;
     padding-top: 1rem;
     -ms-flex-pack: distribute;
-        justify-content: space-around;
+        justify-content: space-evenly;
     margin: 0 2rem;
 }
 
@@ -237,6 +241,9 @@ footer {
   font-size: .8rem;
   color: #3636368b;
   text-align: center;
+}
+#forecast td {
+    padding: 0.5rem 0;
 }
 
 @-webkit-keyframes animatedBackground {
