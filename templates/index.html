@@ -30,14 +30,13 @@
 <aside id="ModalSearch" class="modal">
     <!-- Modal content -->
     <main class="modal-content">
-      <header class="modal-header">
         <form class="nosubmit" autocomplete="off" action="/result" method="POST">
           <div class="autocomplete">
             <input type="text" id="city" name="city" class="nosubmit" placeholder="Search city..." required>
+            <span class="close">&times;</span>
           </div>
+          <input type="submit" value="Send">
         </form>
-        <span class="close">&times;</span>
-      </header>
     </main>
 </aside>
 </body>
