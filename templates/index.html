@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark light">
     <link rel="stylesheet" href="/static/css/style.css">
-    <script src="/static/js/cities.js"></script>
+    <script src="/static/js/cities.js" defer></script>
     <script src="/static/js/autocomplete.js" defer></script>
     <script src="/static/js/modal.js" defer></script>
+    <script src="/static/js/script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -35,8 +36,11 @@
             <input type="text" id="city" name="city" class="nosubmit" placeholder="Search city..." required>
             <span class="close">&times;</span>
           </div>
-          <input type="submit" value="Send">
+          <input type="submit" value="Get the weather">
         </form>
+    <!-- <form class="nosubmit" autocomplete="off" action="/result" method="POST">
+        <button onclick="getLocation()">Get Location</button>
+    </form> -->
     </main>
 </aside>
 </body>

@@ -16,6 +16,7 @@
                 "humidity": 37,
                 "temp_kf": -0.88
             },
+            
             "weather": [
                 {
                     "id": 804,

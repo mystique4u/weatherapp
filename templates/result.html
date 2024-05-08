@@ -6,9 +6,10 @@
     <meta name="color-scheme" content="dark light">
     <link rel="stylesheet" href="/static/css/result.css">
     <script src="/static/js/result.js" defer></script>
-    <script src="/static/js/cities.js"></script>
+    <script src="/static/js/cities.js" defer></script>
     <script src="/static/js/autocomplete.js" defer></script>
     <script src="/static/js/modal.js" defer></script>
+    <script src="/static/js/script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -26,10 +27,7 @@
         </header>
         <p class="weather">
             <span class="wsicon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="85" height="85" fill="white" class="bi bi-clouds" viewBox="0 0 16 16">
-                    <path d="M16 7.5a2.5 2.5 0 0 1-1.456 2.272 3.5 3.5 0 0 0-.65-.824 1.5 1.5 0 0 0-.789-2.896.5.5 0 0 1-.627-.421 3 3 0 0 0-5.22-1.625 5.6 5.6 0 0 0-1.276.088 4.002 4.002 0 0 1 7.392.91A2.5 2.5 0 0 1 16 7.5"/>
-                    <path d="M7 5a4.5 4.5 0 0 1 4.473 4h.027a2.5 2.5 0 0 1 0 5H3a3 3 0 0 1-.247-5.99A4.5 4.5 0 0 1 7 5m3.5 4.5a3.5 3.5 0 0 0-6.89-.873.5.5 0 0 1-.51.375A2 2 0 1 0 3 13h8.5a1.5 1.5 0 1 0-.376-2.953.5.5 0 0 1-.624-.492z"/>
-                </svg>
+                <img src="/static/images/states_icons/{%if weather_data %}{{weather_data.weather_icon}}{% endif %}.svg" width="80" height="80" alt="Weather icon: {% if weather_data %}{{ weather_data.weather_desc }}{% endif %}">
             </span>
             <span class="temperature">
                 {% if weather_data %}
@@ -84,7 +82,9 @@
     </section>
     <footer>
         <p id="copyright">&copy; Created by Yurii M. <br>Data provided by openweathermap.org</p>
+        <p id="demo"></p>
     </footer>
+    <!-- The Modal -->
     <aside id="ModalSearch" class="modal">
         <!-- Modal content -->
         <main class="modal-content">
@@ -93,8 +93,15 @@
                 <input type="text" id="city" name="city" class="nosubmit" placeholder="Search city..." required>
                 <span class="close">&times;</span>
               </div>
-              <input id="btnmodal" type="submit">
+              <input type="submit" value="Get the weather">
             </form>
+            <form class="nosubmit" autocomplete="off" action="/result" method="POST">
+                <div class="autocomplete">
+                  <input type="text" id="city" name="city" class="nosubmit" placeholder="Search city..." required>
+                  <span class="close">&times;</span>
+                </div>
+                <input type="submit" value="Get the weather">
+              </form>
         </main>
     </aside>
 </body>

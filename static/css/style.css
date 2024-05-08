@@ -79,7 +79,7 @@ footer {
     .close {
       color: #B8B8B8;
     }   
-    .modal-content header {
+    .autocomplete {
       border-bottom: 1px solid #e1e1e1;
     }
     .autocomplete-items div:hover {
@@ -94,7 +94,7 @@ footer {
     .close {
       color: #9e9e9e;
     }
-    .modal-content header {
+    .autocomplete {
       border-bottom: 1px solid #6f6f6f;
     }
     .autocomplete-items div:hover {
