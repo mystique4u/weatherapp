@@ -144,7 +144,7 @@ dmypy.json
 .pytype/
 
 # vscode
-.vscode
+.vscode/
 
 # Cython debug symbols
 cython_debug/

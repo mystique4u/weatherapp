@@ -37,6 +37,18 @@ def get_weather(city):
     else:
         return None
 
+def reverse_geo(lat, lon):
+    url = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric'
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        city_name = data['name']
+        return city_name
+    else:
+        return None
+
+
+
 def get_forecast(lat, lon):
     url = f'http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={api_key}&units=metric'
     response = requests.get(url)
@@ -77,6 +89,21 @@ def result():
             lon = weather_data['lon']
             to_html_forecast_data = get_forecast(lat, lon)
     return render_template('result.html', weather_data=weather_data, forecast_data = to_html_forecast_data )
+
+@app.route('/update_location', methods=['POST'])
+def update_location():
+    # url = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric'
+    # response = requests.get(url)
+    # if response.status_code == 200:
+    data = request.json
+    latitude = data.get('latitude')
+    longitude = data.get('longitude')
+
+    # Process location data (e.g., store it in a database)
+    print("Lat:", latitude)
+    print("Lon:", longitude)
+
+    return 'Location received'
 
 if __name__ == '__main__':
     app.run(debug=True)
