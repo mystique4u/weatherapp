@@ -47,47 +47,26 @@
     <section id="forecast">
         <table>
             <tbody>
-                <tr>
-                    <td class="wday">Mon</td>
-                    <td><img class="wsvg" src="/static/images/states_icons/cloud-fog.svg" alt=""></td>
-                    <td class="wsdescription">brocken clouds</td>
-                    <td class="temperature">+15&#8451</td>
-                </tr>
-                <tr>
-                    <td class="wday">Tue</td>
-                    <td class="wsicon"><img class="wsvg" src="/static/images/states_icons/cloud-drizzle.svg" alt=""></td>
-                    <td class="wsdescription">few clouds</td>
-                    <td class="temperature">+15&#8451</td>
-                </tr>
-                <tr>
-                    <td class="wday">Wed</td>
-                    <td class="wsicon"><img class="wsvg" src="/static/images/states_icons/cloud-lightning-rain.svg" alt=""></td>
-                    <td class="wsdescription">rain</td>
-                    <td class="temperature">+15&#8451</td>
-                </tr>
-                <tr>
-                    <td class="wday">Thu</td>
-                    <td class="wsicon"><img class="wsvg" src="/static/images/states_icons/cloud-snow.svg" alt=""></td>
-                    <td class="wsdescription">snow</td>
-                    <td class="temperature">+15&#8451</td>
-                </tr>
-                <tr>
-                    <td class="wday">Fri</td>
-                    <td class="wsicon"><img class="wsvg" src="/static/images/states_icons/cloud-sun.svg" alt=""></td>
-                    <td class="wsdescription">fog with snow</td>
-                    <td class="temperature">+15&#8451</td>
-                </tr>
+                    {% if forecast_data %}
+                        {% for data in forecast_data %}
+                                    <tr>
+                                        <td class="wday">{{ data.day }}</td>
+                                        <td><img class="wsvg" src="/static/images/states_icons/{{ data.icon }}.svg" alt=""></td>
+                                        <td class="wsdescription">{{ data.description }}</td>
+                                        <td class="temperature">{{ data.temperature }}&#8451</td>
+                                    </tr>
+                        {% endfor %}
+                    {% endif %}
             </tbody>
         </table>
     </section>
     <footer>
         <p id="copyright">&copy; Created by Yurii M. <br>Data provided by openweathermap.org</p>
-        <p id="demo"></p>
     </footer>
     <!-- The Modal -->
     <aside id="ModalSearch" class="modal">
         <!-- Modal content -->
-        <main class="modal-content">
+        <div class="modal-content">
             <form class="nosubmit" autocomplete="off" action="/result" method="POST">
               <div class="autocomplete">
                 <input type="text" id="city" name="city" class="nosubmit" placeholder="Search city..." required>
@@ -95,14 +74,7 @@
               </div>
               <input type="submit" value="Get the weather">
             </form>
-            <form class="nosubmit" autocomplete="off" action="/result" method="POST">
-                <div class="autocomplete">
-                  <input type="text" id="city" name="city" class="nosubmit" placeholder="Search city..." required>
-                  <span class="close">&times;</span>
-                </div>
-                <input type="submit" value="Get the weather">
-              </form>
-        </main>
+        </div>
     </aside>
 </body>
 </html>
