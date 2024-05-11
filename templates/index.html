@@ -4,16 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark light">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/images/favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="/static/css/style.css">
     <script src="/static/js/cities.js" defer></script>
     <script src="/static/js/autocomplete.js" defer></script>
     <script src="/static/js/modal.js" defer></script>
     <script src="/static/js/script.js" defer></script>
+    <script src="/static/js/globe.gl.min.js"></script>
+    <script type="module" src="/static/js/globe.js" defer ></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <script src="/static/js/globe.gl.min.js"></script>
-    <script type="module" src="/static/js/globe.js" defer ></script>
     <title>World Wide Weather App - Demo App for DevOps Project</title>
 </head>
 <body>
@@ -24,22 +30,25 @@
     <section id="globe">
     </section>
     <footer>
-        <button id="btnmodal">specify location</button>
+        <div>
+            <p>Allow use of your location or</p>
+            <button id="btnmodal"><span class="shimmer">specify location</span></button>
+        </div>
         <p id="copyright">&copy; Created by Yurii M. <br>Data provided by openweathermap.org</p>
     </footer>
     <!-- The Modal -->
-<aside id="ModalSearch" class="modal">
-    <!-- Modal content -->
-    <main class="modal-content">
-        <form class="nosubmit" autocomplete="off" action="/result" method="GET">
-          <div class="autocomplete">
-            <input type="text" id="city" name="city" class="nosubmit" placeholder="Search city..." required>
-            <span class="close">&times;</span>
-          </div>
-          <input type="submit" value="Get the weather">
-        </form>
-    </main>
-</aside>
+    <aside id="ModalSearch" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <form id="cityForm" class="nosubmit" autocomplete="off" method="GET">
+              <div class="autocomplete">
+                <input type="text" id="city" name="city" class="nosubmit" placeholder="Search city..." required>
+                <span class="close">&times;</span>
+              </div>
+              <input type="submit" value="Get the weather">
+            </form>
+        </div>
+    </aside>
 </body>
 </html>
 

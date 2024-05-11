@@ -61,6 +61,17 @@ footer {
         -ms-flex-positive: 1;
             flex-grow: 1;
 }
+
+main button {
+    flex-grow: 7;
+    width: 100vw;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #6f6f6f;
+  }
+
 main header {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -401,8 +412,6 @@ aside header {
   flex-grow: 0;
 }
 
-
-
 /* Some animation*/
 
 
@@ -424,23 +433,49 @@ aside header {
     }
   }
 
+
+
 /* Dark mode*/
 @media screen and (prefers-color-scheme: light) {
-.city_name, main .weather, .description {
-    color: #fff;
-}
-.wsvg {
-    -webkit-filter: invert(1.5) sepia(0) saturate(5) hue-rotate(175deg);
-            filter: invert(1.5) sepia(0) saturate(5) hue-rotate(175deg);
-}
-.wday {
-    color: #000;
-}
+    body, .modal-content, #cityautocomplete-list  {
+      background-color: #fff;
+    }
 
+    .close {
+      color: #B8B8B8;
+    }   
+    .autocomplete {
+      border-bottom: 1px solid #e1e1e1;
+    }
+    .autocomplete-items div:hover {
+      background-color: #e9e9e9; 
+    }
+
+    .city_name, main .weather, .description {
+        color: #fff;
+    }
+    .wsvg {
+        -webkit-filter: invert(1.5) sepia(0) saturate(5) hue-rotate(175deg);
+                filter: invert(1.5) sepia(0) saturate(5) hue-rotate(175deg);
+    }
+    .wday {
+        color: #000;
+    }
 }
 
 @media screen and (prefers-color-scheme: dark) {
-
+    body, .modal-content, #cityautocomplete-list {
+      background-color: #151515;
+    }
+    .close {
+      color: #9e9e9e;
+    }
+    .autocomplete {
+      border-bottom: 1px solid #6f6f6f;
+    }
+    .autocomplete-items div:hover {
+      background-color: #202020; 
+    }
 }
 
 /* Responsive */

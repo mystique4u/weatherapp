@@ -46,17 +46,36 @@ section * {
     justify-content: center;
     align-items: center;
 }
-p, footer button {
-    color: #8F8F8F;
-    font-size: 1.3em;
+p {
+  font-size: 1rem;
+  color: #8F8F8F;
+}
+
+header p {
+  font-size: 1.5rem;
 }
 
 footer button {
+    font-size: 2em;
+    border: none;
+    background: none;
+}
+button {
+  cursor: pointer;
+}
+
+
+
+
+footer div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   flex-grow: 7;
   width: 100vw;
   border:none;
   background: none;
-  cursor: pointer;
 }
 footer {
   display: flex;
@@ -72,6 +91,14 @@ footer {
 
 /* Dark mode*/
 @media screen and (prefers-color-scheme: light) {
+    footer div p::after {
+      content: " ";
+      display: block;
+      border: 1px solid #ddd;
+      width: 40%;
+      margin: 1rem auto;
+    }
+
     body, .modal-content, #cityautocomplete-list  {
       background-color: #fff;
     }
@@ -88,6 +115,13 @@ footer {
 }
 
 @media screen and (prefers-color-scheme: dark) {
+    footer div p::after {
+      content: " ";
+      display: block;
+      border: 0.1rem solid #262626;
+      width: 40%;
+      margin: 1rem auto;
+    }
     body, .modal-content, #cityautocomplete-list {
       background-color: #151515;
     }
@@ -119,8 +153,8 @@ footer {
     -webkit-animation-duration: 0.4s;
     animation-name: fadeIn;
     animation-duration: 0.4s
-  }
-  form.nosubmit {
+}
+form.nosubmit {
     border: none;
     padding: 0;
     width: 100%;
@@ -128,24 +162,24 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  }
+}
 
-  input.nosubmit {
+input.nosubmit {
     width: 100%;
     border: none;
     display: block;
     padding: 10px 0 10px 30px;
     background: transparent url('data:image/svg+xml,<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(%23clip0_7_61)"><path d="M11 22C11 22 19.25 14.1818 19.25 8.25C19.25 6.06196 18.3808 3.96354 16.8336 2.41637C15.2865 0.869194 13.188 0 11 0C8.81196 0 6.71354 0.869194 5.16637 2.41637C3.61919 3.96354 2.75 6.06196 2.75 8.25C2.75 14.1818 11 22 11 22ZM11 12.375C9.90598 12.375 8.85677 11.9404 8.08318 11.1668C7.3096 10.3932 6.875 9.34402 6.875 8.25C6.875 7.15598 7.3096 6.10677 8.08318 5.33318C8.85677 4.5596 9.90598 4.125 11 4.125C12.094 4.125 13.1432 4.5596 13.9168 5.33318C14.6904 6.10677 15.125 7.15598 15.125 8.25C15.125 9.34402 14.6904 10.3932 13.9168 11.1668C13.1432 11.9404 12.094 12.375 11 12.375Z" fill="%238D8D8D"/></g><defs><clipPath id="clip0_7_61"><rect width="22" height="22" fill="white"/></clipPath></defs></svg>') no-repeat 0px center;
-  }
+}
 
-  input.nosubmit:focus {
+input.nosubmit:focus {
     border: none;
     outline: none;
-  }
-  
-  
-  /* Modal Content */
-  .modal-content {
+}
+
+
+/* Modal Content */
+.modal-content {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -158,49 +192,50 @@ footer {
     animation-name: slideIn;
     animation-duration: 0.4s;
     padding: 1rem 1.5rem;
-  }
-  .modal-content header {
+}
+.modal-content header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-shrink: 1;
     margin: .8rem 2rem;
     padding: .8rem 0;
-  }
-  
-  /* The Close Button */
-  .close {
+}
+
+/* The Close Button */
+.close {
     float: right;
     font-size: 2rem;
-  }
-  
-  .close:hover,
-  .close:focus {
+}
+
+.close:hover,
+.close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  }
-  
-  /* Add Animation */
-  @-webkit-keyframes slideIn {
-    from {bottom: -100vh; opacity: 0} 
-    to {bottom: 0; opacity: 1}
-  }
-  
-  @keyframes slideIn {
-    from {bottom: -100vh; opacity: 0}
-    to {bottom: 0; opacity: 1}
-  }
-  
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0} 
-    to {opacity: 1}
-  }
-  
-  @keyframes fadeIn {
-    from {opacity: 0} 
-    to {opacity: 1}
-  }
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  from {bottom: -100vh; opacity: 0} 
+  to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+  from {bottom: -100vh; opacity: 0}
+  to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
 
 /*the container must be positioned relative:*/
 .autocomplete {
@@ -257,4 +292,68 @@ input[type=submit] {
 }
 aside header {
   flex-grow: 0;
+}
+
+/* shimmer */
+
+.shimmer {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.1);
+  background: -webkit-gradient(linear, left top, right top, from(#2f2f2f), to(#2f2f2f), color-stop(0.5, #e5e5e5));
+  background: -moz-gradient(linear, left top, right top, from(#2f2f2f), to(#2f2f2f), color-stop(0.5, #e5e5e5));
+  background: gradient(linear, left top, right top, from(#2f2f2f), to(#2f2f2f), color-stop(0.5, #e5e5e5));
+  -webkit-background-size: 125px 100%;
+  -moz-background-size: 125px 100%;
+  background-size: 100px 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-animation-name: shimmer;
+  -moz-animation-name: shimmer;
+  animation-name: shimmer;
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-color: #222;
+}
+
+@-moz-keyframes shimmer {
+  0% {
+      background-position: top left;
+  }
+  100% {
+      background-position: top right;
+  }
+}
+
+@-webkit-keyframes shimmer {
+  0% {
+      background-position: top left;
+  }
+  100% {
+      background-position: top right;
+  }
+}
+
+@-o-keyframes shimmer {
+  0% {
+      background-position: top left;
+  }
+  100% {
+      background-position: top right;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+      background-position: top left;
+  }
+  100% {
+      background-position: top right;
+  }
 }

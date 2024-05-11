@@ -25,7 +25,7 @@ function showPosition(position) {
         console.log('Location sent to Flask backend.');
 
         // Redirect to another page after allowing location access
-        window.location.href = '/result?lat=' + latitude + '&lon=' + longitude ; //encodeURIComponent()
+        window.location.href = '/result?lat=' + latitude + '&lon=' + longitude;
     }).catch(error => {
         console.error('Error sending location:', error);
     });
