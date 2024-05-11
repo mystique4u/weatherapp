@@ -31,14 +31,13 @@
 <aside id="ModalSearch" class="modal">
     <!-- Modal content -->
     <main class="modal-content">
-        <form class="nosubmit" autocomplete="off" action="/result" method="POST">
+        <form class="nosubmit" autocomplete="off" action="/result" method="GET">
           <div class="autocomplete">
             <input type="text" id="city" name="city" class="nosubmit" placeholder="Search city..." required>
             <span class="close">&times;</span>
           </div>
           <input type="submit" value="Get the weather">
         </form>
-        <button onclick="getLocation()">Get Location</button>
     </main>
 </aside>
 </body>

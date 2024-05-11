@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import requests
 import datetime
 
@@ -13,8 +13,12 @@ app = Flask(__name__)
 api_key = os.getenv("WAPI_KEY") # Replace with your API key
 
 
-def get_weather(city):
-    url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric'
+def get_weather(**key):
+    if 'city' in key:
+        url = f'http://api.openweathermap.org/data/2.5/weather?q={key['city']}&appid={api_key}&units=metric'
+    else:
+        url = f'https://api.openweathermap.org/data/2.5/weather?lat={key['lat']}&lon={key['lon']}&appid={api_key}&units=metric'
+
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
@@ -36,18 +40,6 @@ def get_weather(city):
                 }
     else:
         return None
-
-def reverse_geo(lat, lon):
-    url = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric'
-    response = requests.get(url)
-    if response.status_code == 200:
-        data = response.json()
-        city_name = data['name']
-        return city_name
-    else:
-        return None
-
-
 
 def get_forecast(lat, lon):
     url = f'http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={api_key}&units=metric'
@@ -80,30 +72,38 @@ def index():
 @app.route('/result', methods=['GET', 'POST'])
 def result():
     weather_data = None
-    forecast_data = None
-    if request.method == 'POST':
-        city = request.form['city']
-        weather_data = get_weather(city)
-        if weather_data: 
-            lat = weather_data['lat']
-            lon = weather_data['lon']
-            to_html_forecast_data = get_forecast(lat, lon)
+    to_html_forecast_data = None
+
+    lat = request.args.get('lat')
+    lon = request.args.get('lon')
+    city = request.args.get('city')
+    if request.method == 'GET':
+        if city:
+            weather_data = get_weather(city=city)
+            if weather_data:
+                lat = weather_data['lat']
+                lon = weather_data['lon']
+                to_html_forecast_data = get_forecast(lat, lon)
+        else:
+            weather_data = get_weather(lat=lat, lon=lon)
+            if weather_data:
+                lat = weather_data['lat']
+                lon = weather_data['lon']
+                to_html_forecast_data = get_forecast(lat, lon)
+
     return render_template('result.html', weather_data=weather_data, forecast_data = to_html_forecast_data )
 
 @app.route('/update_location', methods=['POST'])
 def update_location():
-    # url = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric'
-    # response = requests.get(url)
-    # if response.status_code == 200:
     data = request.json
-    latitude = data.get('latitude')
-    longitude = data.get('longitude')
+    if data:
+        lat = data.get('latitude')
+        lon = data.get('longitude')
 
-    # Process location data (e.g., store it in a database)
-    print("Lat:", latitude)
-    print("Lon:", longitude)
-
-    return 'Location received'
+        return redirect(url_for('result', lat=data['lat'], lon=data['lon']))
+        # return city_name
+    else:
+        return ''
 
 if __name__ == '__main__':
     app.run(debug=True)

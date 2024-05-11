@@ -100,8 +100,16 @@ function autocomplete(inp, arr) {
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("city"), cities);
-// document.getElementById('email').onkeydown = function (e) {
-//     if (e.keyCode == 13) {
-//         // submit
-//     }
-// };
+
+document.getElementById("cityForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get the value of the input field
+    var city = document.getElementById("city").value;
+
+    // Construct the URL with the query parameter
+    var url = '/result?city=' + city;
+
+    // Redirect to the new URL
+    window.location.href = url;
+});

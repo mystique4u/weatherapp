@@ -9,7 +9,7 @@
     <script src="/static/js/cities.js" defer></script>
     <script src="/static/js/autocomplete.js" defer></script>
     <script src="/static/js/modal.js" defer></script>
-    <script src="/static/js/script.js" defer></script>
+    <!-- <script src="/static/js/script.js" defer></script> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -67,7 +67,7 @@
     <aside id="ModalSearch" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
-            <form class="nosubmit" autocomplete="off" action="/result" method="POST">
+            <form id="cityForm" class="nosubmit" autocomplete="off" method="GET">
               <div class="autocomplete">
                 <input type="text" id="city" name="city" class="nosubmit" placeholder="Search city..." required>
                 <span class="close">&times;</span>
