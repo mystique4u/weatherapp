@@ -22,7 +22,7 @@ function showPosition(position) {
         },
         body: JSON.stringify({ latitude, longitude })
     }).then(response => {
-        console.log('Location sent to Flask backend.');
+        // console.log('Location sent to Flask backend.');
 
         // Redirect to another page after allowing location access
         window.location.href = '/result?lat=' + latitude + '&lon=' + longitude;
